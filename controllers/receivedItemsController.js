@@ -102,6 +102,7 @@ const deleteReceivedItem = async (request, response) => {
     const {id} = request.params;
 
     try{
+        const existingItem = await receivedItem.findById(id);
        
         const yearStatus = await isYearClosed(existingItem.year);
         if (yearStatus) {
