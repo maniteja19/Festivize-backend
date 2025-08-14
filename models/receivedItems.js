@@ -11,11 +11,6 @@ const receivedItemScheme = new mongoose.Schema({
         min : [0, 'Amount cannot be negative.'],
         default:0
     },
-    quantity: {
-        type: Number,
-        min : [0, 'Amount cannot be negative.'],
-        default:1
-    },
     denotedBy : {
         type : String,
         required : [true, 'denotedby is required'],

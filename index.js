@@ -6,6 +6,7 @@ const receivedItemRouter = require('./routes/receivedItemsRoutes')
 const authRouter = require('./routes/authRoutes')
 const homeRouter = require('./routes/homeRoutes')
 const yearRouter = require('./routes/yearRoutes')
+const StorageRouter = require('./routes/storageRoutes');
 const app = express();
 
 //database connection
@@ -21,6 +22,7 @@ app.use('/',expenditureRouter);
 app.use('/',authRouter)
 app.use('/',homeRouter)
 app.use('/',yearRouter) 
+app.use('/', StorageRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server is running at port ${PORT}`));

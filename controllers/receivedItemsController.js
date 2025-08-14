@@ -2,8 +2,7 @@ const receivedItem = require('../models/receivedItems');
 const { isYearClosed } = require('./yearController'); 
 
 const addReceivedItems = async (request, response) => {
-    const {itemName, amount, denotedBy, status, collectedBy, quantity, year} = request.body;
-    console.log(itemName, amount, denotedBy, status, collectedBy, quantity, year)
+    const {itemName, amount, denotedBy, status, collectedBy, year} = request.body;
     if(!itemName || !denotedBy || !status){
         return response.status(400).json({ 
             message: 'Please provide all required fields: item name, denoted by, status' 
@@ -18,7 +17,7 @@ const addReceivedItems = async (request, response) => {
 
         const newReceivedItem = new receivedItem({
             itemName: itemName,
-            amount, status, denotedBy, collectedBy, year, quantity
+            amount, status, denotedBy, collectedBy, year,
         })
         await newReceivedItem.save()
         response.status(201).json({

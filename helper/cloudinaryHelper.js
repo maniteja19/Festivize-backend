@@ -10,7 +10,7 @@ const uploadCloudinary = async(filepath) =>{
         }
     }
     catch(error){
-        console.error("Error while uploading file in cloudinary.", error);
+        console.error("Error while uploading file to cloudinary.", error);
         throw new Error('Error while uploading image to cloudinary.')
     }
 }
